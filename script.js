@@ -34,43 +34,42 @@ function generatePassword(randomString) {
     runTheOtherPrompts();
   }
 //⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
+// Run this after the user chooses the length requirement of 8 to 128
   function runTheOtherPrompts() {
+    storeAllCharsHere = ""
     // the other prompts
     lowerChars = confirm(
       "Would you like this in your password?\nLower case letters\nSelect 'OK' to include them. Click 'Cancel' to move on to the next option."
     );
     if (lowerChars === true) {
       storeAllCharsHere += everyChar.lowercase;
-    } else {
-      storeAllCharsHere += "";
+      console.log(storeAllCharsHere)
     }
 
     upperChars = confirm(
       "Would you like this in your password?\nUpper case letters\nSelect 'OK' to include them. Click 'Cancel' to move on to the next option."
     );
-    if (lowerChars === true) {
+    if (upperChars === true) {
       storeAllCharsHere += everyChar.uppercase;
-    } else {
-      storeAllCharsHere += "";
+      console.log(storeAllCharsHere)
     }
-
     numberChars = confirm(
       "Would you like this in your password?\nNumbers\nSelect 'OK' to include them. Click 'Cancel' to move on to the next option."
     );
-    if (lowerChars === true) {
+    if (numberChars === true) {
       storeAllCharsHere += everyChar.numbers;
-    } else {
-      storeAllCharsHere += "";
+      console.log(storeAllCharsHere)
+
     }
 
     specialChars = confirm(
       "Would you like this in your password?\nSpecial Characters\nSelect 'OK' to include them. Click 'Cancel' to move on to the next option."
     );
-    if (lowerChars === true) {
+    if (specialChars === true) {
       storeAllCharsHere += everyChar.special;
-    } else {
-      storeAllCharsHere += "";
+      console.log(storeAllCharsHere)
     }
+    console.log(storeAllCharsHere)
   }
 //⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️
   // # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -79,14 +78,9 @@ function generatePassword(randomString) {
   function passwordLength(askPasswordLength) {
     // Variable to store the randomly selected characters
     password = "";
+    randomIndex = storeAllCharsHere.length
     // Variable to holds characters from which to randomly choose, and then store in the password variable.
-    characterContainer =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+`~-='[]/|{}|;:";
-
-    // alphaUpperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    // alphaLowerCase = 'abcdefghijklmnopqrstuvwxyz'
-    // numberString = '0123456789'
-    // specialCharacters = ""
+  
 
     //⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
     // Generate a random number. askPasswordLength parament determines the range.
@@ -97,7 +91,7 @@ function generatePassword(randomString) {
     //⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️
 
     for (let step = 0; step < askPasswordLength; step++) {
-      password += characterContainer.charAt(ranNumbers(89));
+      password += storeAllCharsHere.charAt(ranNumbers(randomIndex));
     }
 
     return password;
