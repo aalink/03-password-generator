@@ -1,3 +1,10 @@
+const everyChar = {
+  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  lowercase: "abcdefghijklmnopqrstuvwxyz",
+  numbers: "0123456789",
+  special: "!@#$%^&*()_+=-[]{}|/?><`~",
+};
+
 storeAllCharsHere = "";
 
 // Assignment Code
@@ -23,44 +30,49 @@ function generatePassword(randomString) {
   } else {
     askPasswordLength = false;
   }
-
-  // other prompts
-  lowerChars = confirm(
-    "Would you like this in your password?\nLower case letters\nSelect 'OK' to include them. Click 'Cancel' to move on to the next option."
-  );
-  if (lowerChars === true) {
-    storeAllCharsHere += "abcdefghijklmnopqrstuvwxyz";
-  } else {
-    storeAllCharsHere += "";
+  if (askPasswordLength !== false) {
+    runTheOtherPrompts();
   }
+//⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
+  function runTheOtherPrompts() {
+    // the other prompts
+    lowerChars = confirm(
+      "Would you like this in your password?\nLower case letters\nSelect 'OK' to include them. Click 'Cancel' to move on to the next option."
+    );
+    if (lowerChars === true) {
+      storeAllCharsHere += everyChar.lowercase;
+    } else {
+      storeAllCharsHere += "";
+    }
 
-  upperChars = confirm(
-    "Would you like this in your password?\nUpper case letters\nSelect 'OK' to include them. Click 'Cancel' to move on to the next option."
-  );
-  if (lowerChars === true) {
-    storeAllCharsHere += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  } else {
-    storeAllCharsHere += "";
+    upperChars = confirm(
+      "Would you like this in your password?\nUpper case letters\nSelect 'OK' to include them. Click 'Cancel' to move on to the next option."
+    );
+    if (lowerChars === true) {
+      storeAllCharsHere += everyChar.uppercase;
+    } else {
+      storeAllCharsHere += "";
+    }
+
+    numberChars = confirm(
+      "Would you like this in your password?\nNumbers\nSelect 'OK' to include them. Click 'Cancel' to move on to the next option."
+    );
+    if (lowerChars === true) {
+      storeAllCharsHere += everyChar.numbers;
+    } else {
+      storeAllCharsHere += "";
+    }
+
+    specialChars = confirm(
+      "Would you like this in your password?\nSpecial Characters\nSelect 'OK' to include them. Click 'Cancel' to move on to the next option."
+    );
+    if (lowerChars === true) {
+      storeAllCharsHere += everyChar.special;
+    } else {
+      storeAllCharsHere += "";
+    }
   }
-
-  numberChars = confirm(
-    "Would you like this in your password?\nNumbers\nSelect 'OK' to include them. Click 'Cancel' to move on to the next option."
-  );
-  if (lowerChars === true) {
-    storeAllCharsHere += "0123456789";
-  } else {
-    storeAllCharsHere += "";
-  }
-
-  specialChars = confirm(
-    "Would you like this in your password?\nSpecial Characters\nSelect 'OK' to include them. Click 'Cancel' to move on to the next option."
-  );
-  if (lowerChars === true) {
-    storeAllCharsHere += "!@#$%^&*()_+=-[]{}|/?><`~";
-  } else {
-    storeAllCharsHere += "";
-  }
-
+//⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️
   // # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   // # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   // # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -83,12 +95,10 @@ function generatePassword(randomString) {
       return randomNumber;
     }
     //⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️
-    
+
     for (let step = 0; step < askPasswordLength; step++) {
       password += characterContainer.charAt(ranNumbers(89));
     }
-
-    // console.log(password);
 
     return password;
   }

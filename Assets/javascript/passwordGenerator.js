@@ -1,7 +1,10 @@
+function test1(range) {
+
 // Variable to store the randomly selected characters
-password =''
+password = "";
 // Variable to holds characters from which to randomly choose, and then store in the password variable.
-characterContainer = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !@#$%^&*()_+`~-='[]/|{}|;:"
+characterContainer =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+`~-='[]/|{}|;:";
 
 // Function to choose the range of numbers you'd like to retrieve from.
 // !!! IMPORTANT: This range includes 0 which will be useful for accessing an index. !!!
@@ -11,9 +14,16 @@ function ranNumbers(range) {
   return randomNumber;
 }
 
-
-for (let step = 0; step < 10; step++) {
+for (let step = 0; step < range; step++) {
   password += characterContainer.charAt(ranNumbers(89));
 }
 
-console.log(password)
+// console.log(password);
+
+return password
+  
+}
+
+test1(8);
+
+console.log(test1(111));
