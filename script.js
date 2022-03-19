@@ -69,7 +69,7 @@ function generatePassword(randomString) {
       storeAllCharsHere += everyChar.special;
       console.log(storeAllCharsHere)
     }
-    console.log(storeAllCharsHere)
+    console.log("These are the characters from which the generator will randomly select: " + storeAllCharsHere)
   }
 //⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️
   // # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
