@@ -5,8 +5,6 @@ const everyChar = {
   special: "!@#$%^&*()_+=-[]{}|/?><`~",
 };
 
-storeAllCharsHere = "";
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -83,7 +81,7 @@ function generatePassword(randomString) {
   
 
     //⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
-    // Generate a random number. askPasswordLength parament determines the range.
+    // Generate a random number. askPasswordLength parameter determines the range.
     function ranNumbers(askPasswordLength) {
       randomNumber = Math.floor(Math.random() * askPasswordLength);
       return randomNumber;
