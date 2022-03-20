@@ -54,6 +54,34 @@ function userChoicesStringOne(upper, lower, numbers, special) {
   // console.log(randomizeAnyString(everyChar.primaryString))
 }
 
+//✅ Uses true/false boolean to record the user's choice of character types.
+//It only takes 1 of each chosen character type and stores it in everyChar.password
+function userChoicesStringTwo(upper, lower, numbers, special) {
+  if (upper === true) {
+    // upperRandom = randomizeAnyString(everyChar.uppercase);
+    everyChar.secondaryString += everyChar.uppercase;
+    // console.log(everyChar.secondaryString)
+  }
+  if (lower === true) {
+    // lowerRandom = randomizeAnyString(everyChar.lowercase);
+    everyChar.secondaryString += everyChar.lowercase;
+    // console.log(everyChar.secondaryString)
+  }
+  if (numbers === true) {
+    // numberRandom = randomizeAnyString(everyChar.numbers);
+    everyChar.secondaryString += everyChar.numbers;
+    // console.log(everyChar.secondaryString)
+  }
+  if (special === true) {
+    // specialRandom = randomizeAnyString(everyChar.special);
+    everyChar.secondaryString += everyChar.special;
+    // console.log(everyChar.secondaryString)
+  }
+
+  return randomizeAnyString(everyChar.secondaryString);
+  // console.log(randomizeAnyString(everyChar.secondaryString))
+}
+
 //✅Finds the number of characters in everyChar.primaryString and then subtracts it from passwordLengthChosen. The number that is returned will be used to generate everyChar.secondaryString
 function chosenPasswordLength(passwordLengthChosen) {
   numberOfChars = passwordLengthChosen;
@@ -68,51 +96,26 @@ function chosenPasswordLength(passwordLengthChosen) {
   return numberOfChars - everyChar.primaryString.length;
 }
 
-//✅ Uses true/false boolean to record the user's choice of character types.
-//It only takes 1 of each chosen character type and stores it in everyChar.password
-function userChoicesStringTwo(upper, lower, numbers, special) {
-  if (upper === true) {
-    upperRandom = randomizeAnyString(everyChar.uppercase);
-    everyChar.secondaryString += upperRandom;
-    // console.log(everyChar.secondaryString)
-  }
-  if (lower === true) {
-    lowerRandom = randomizeAnyString(everyChar.lowercase);
-    everyChar.secondaryString += lowerRandom;
-    // console.log(everyChar.secondaryString)
-  }
-  if (numbers === true) {
-    numberRandom = randomizeAnyString(everyChar.numbers);
-    everyChar.secondaryString += numberRandom;
-    // console.log(everyChar.secondaryString)
-  }
-  if (special === true) {
-    specialRandom = randomizeAnyString(everyChar.special);
-    everyChar.secondaryString += specialRandom;
-    // console.log(everyChar.secondaryString)
-  }
+//⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
+//⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
+//⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
+//✅Final function that takes 5 parameters: The number of characters in the password, and then true/false booleans the determine what types are permitted.
+function finalPassword(finalNumber,upperbool,lowerbool,numberbool,specialbool) {
+  everyChar.primaryString = userChoicesStringOne(upperbool, lowerbool, numberbool, specialbool);
+  console.log(everyChar.primaryString)
+  
+  everyChar.secondaryString = userChoicesStringTwo(upperbool, lowerbool, numberbool, specialbool);
+  console.log(everyChar.secondaryString)
 
-  return everyChar.secondaryString;
-  // console.log(randomizeAnyString(everyChar.secondaryString))
+  everyChar.password += everyChar.primaryString
+  
+  subtracted = finalNumber - everyChar.primaryString.length;
+  console.log(subtracted)
+  for (let step = 0; step < subtracted; step++) {
+    everyChar.password += everyChar.secondaryString.charAt(ranNumbers(subtracted));
+  }
+  return everyChar.password;
 }
 
-
-//⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
-//⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
-//⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆
-
-primary = userChoicesStringOne(true, true, true, true);
-secondary = userChoicesStringTwo(true, true, true, true);
-
-// console.log(userChoicesStringTwo(true,true,true,true))
-
-console.log(chosenPasswordLength(20));
-
-// console.log(primary);
-
-// console.log(secondary);
-
-console.log(primary + secondary);
-
-
-// chosenPasswordLength(20)
+console.log(finalPassword(10, true, true, false, false));
+console.log(everyChar)
