@@ -10,7 +10,7 @@ Maintaining strong passwords is one of the most important practices for individu
 - Numbers
 - Special Characters
 
-![Password Generator](assets/password-generator.png)  
+![Password Generator](Assets/password-generator.png)  
 
 ```
 Challenges
